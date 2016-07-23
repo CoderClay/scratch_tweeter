@@ -1,43 +1,11 @@
-<!--The only difference between the 'register.html' and the 'login.html' should be the
-form headings and the 'ng-submit' function, which should conatin their
-respective functions.-->
+<!--Like the main.html page, we turn login and register into small
+blocks of content from a standalone page.-->
 
 <!--register.html-->
-<html>
-  <head>
-    <title>Chirp</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script src="javascripts/chirpApp.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-  </head>
-  <body ng-app="chirpApp">
-  <!--Here, we tell this page to use "chirpApp" as apart of this body div.-->
-
-    <div id='main' class="container" ng-controller="authController">
-    <!-- Here we bind our authController to our register.html-->
-
-      <form class="form-auth" ng-submit="register()">
-      <!--Here is where we tell our register.html which part of the authController
-      we have in mind.-->
-
-        <h2>Register</h2>
-        <p class="text-warning">{{error_message}}</p>
-        <!--If register need to thow an error at any time, it will fall back to here.-->
-
-        <input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
-        <!--Passing into ou registeration function, and retrieving a property of of 'user'
-        called 'username'. Our user.username function will 1.Test whether the username exists
-        2.Throw error if username !== available and 3.If username === available, assign it
-        to these credentials.-->
-
-        <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-        <!--Once the user has successfuly passed through the username portion of our user function, the password
-        portion will assign a password/hash to the username and store these as a key/value
-        in or Mongo.-->
-
-        <input type="submit" value="Register" class="btn btn-primary" />
-      </form>
-    </div>
-  </body>
-</html>
+<form class="form-auth" ng-submit="register()">
+  <h2>Register</h2>
+  <p class="text-warning">{{error_message}}</p>
+  <input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
+  <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+  <input type="submit" value="Register" class="btn btn-primary" />
+</form>
