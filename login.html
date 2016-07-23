@@ -1,0 +1,45 @@
+<!--The only difference between the 'register.html' and the 'login.html' should be the
+form headings and the 'ng-submit' function, which should conatin their
+respective functions.-->
+
+<!--login.html-->
+<html>
+  <head>
+    <title>Chirp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="javascripts/chirpApp.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body ng-app="chirpApp">
+  <!--Here, we tell this page to use "chirpApp" as apart of this body div.-->
+
+    <div id='main' class="container" ng-controller="authController">
+    <!-- Here we bind our authController to our login.html-->
+
+      <form class="form-auth" ng-submit="login()">
+      <!--Here is where we tell our login.html which part of the authController
+      we have in mind.-->
+
+        <h2>Log In</h2>
+        <p class="text-warning">{{error_message}}</p>
+        <!--Passing through our login and reaching our error message if login
+        fails.-->
+
+        <input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
+        <!--Passing into our login function, and retrieving a property of of 'user'
+        called 'username'. Our username input, which accesses 'user.username', will be a place where we
+         access a database object.-->
+
+        <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+        <!--Same principle as above, we pass through our login functio and we tap our
+        user object. Our database will use this field to make a decision about whether
+        the computer user and a particular account belong to one another with a 'password'.-->
+
+        <input type="submit" value="Log in" class="btn btn-primary" />
+        <!--Our submit button.-->
+
+      </form>
+    </div>
+  </body>
+</html>
