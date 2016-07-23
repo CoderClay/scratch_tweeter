@@ -20,7 +20,19 @@ a text area for now.-->
         </form>
         <div id="post-stream">
           <h4>Chirp Feed</h4>
-                <!--to be populated by Angular-->
-    </div>
+            <!--Adding ng-repeat to tie Angular in. Here, using 'ng-repeat="posts
+            in posts"' tells Angular to access the posts variable, loop it and set
+            each to 'post', allowing us to access the details of each 'post' and display.-->
+            <div class='post' ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'">
+              <!--{{post.text}} is self explainatory.-->
+              <p>{{post.text}}</p>
+            <!--So is {{post.created_by}}.-->
+            <small>Posted by @{{post.created_by}}</small>
+            <!--{{post.created_at | date:"h:mma 'on' MMM d, y"}} has an added timestamp for formatting.-->
+            <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+
+            </div>
+
+          </div>
   </body>
 </html>
